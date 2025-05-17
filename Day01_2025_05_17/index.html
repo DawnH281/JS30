@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Bài 1 kiểm tra chẵn lẻ
+        a = parseInt(prompt('Nhập số nguyên a: '));
+        function chanLe(a){
+            if(a%2==0){
+                return 'Số chẵn'
+            }
+            else{
+                return 'Số lẻ'
+            }
+        }
+        document.write(chanLe(a) + '<br>')
+
+        //Bài 2 tính giai thừa
+        b = parseInt(prompt('Nhập số nguyên dương b: '));
+        function tinhGiaiThua(b){
+            if(b<0){
+                return 'Không tính được giai thừa số âm'
+            }
+            if(b==0||b==1){
+                return 1
+            }
+            else{
+                return b * tinhGiaiThua(b-1)
+            }
+        }
+        document.write(tinhGiaiThua(b) + '<br>')
+
+        //Bài 3 Đếm số chia hết cho 3 và 5 trong khoảng 1-100
+        function demSoChiaHet(){
+            let count = 0
+            for(let i = 1; i<=100; i++){
+                if(i%5==0&&i%3==0){
+                    count++;
+                }
+            }
+            return count;
+        }
+        document.write(demSoChiaHet() + '<br>')
+
+        //Bài 4 Tính tổng các số lẻ nhỏ hơn c
+        c = parseInt(prompt('Nhập số nguyên c'));
+        function tongSoLe(c){
+            let tong = 0;
+            for(let i = 1; i<c; i+=2){
+                tong+=i
+            }
+            return tong;
+        }
+        document.write(tongSoLe(c) + '<br>')
+
+        //Bài 5 Hiển thị bảng cửu chương
+        d = parseInt(prompt('Nhập 1 số d từ 2-9: '))
+        function bangCuuChuong(d){
+            if(d<2||d>9){
+                return 'Vui long nhập số từ 2-9'
+            return
+            }
+            document.write(`Bảng cửu chương của ${d}: ` +'<br>')
+            for(let j = 1; j<=10; j++){
+                document.write(`${d} x ${j} = ${d*j}` +'<br>')
+            }
+        }
+        bangCuuChuong(d)
+
+        //Bài 6 Kiểm tra số nguyên tố
+        e = parseInt(prompt('Nhập số nguyên e: '));
+        function soNguyenTo(e){
+            if(e<2){
+                return false;
+            }
+            for(let o = 2; o<=Math.sqrt(e); o++){
+                if(e%o==0){
+                    return false;
+                }
+            }
+            return true;
+        }
+        document.write(soNguyenTo(e) + '<br>')
+
+        //Bài 7 Vẽ tam giác sao
+        f = parseInt(prompt('Nhập số nguyên dương f:'));
+        function veTamGiac(f){
+            if(f<1 || !Number.isInteger(f)){
+                document.write('Nhập số nguyên dương');
+                return
+            }
+            for(let h = 1; h<=f; h++){
+                document.write('*'.repeat(h) + '<br>')
+            }
+        }
+        veTamGiac(f)
+     
+        //Bài 8 chuyển đổi điểm
+        diem = parseFloat(prompt('Nhập điểm của học sinh: '));
+        function xepLoai(diem){
+            if(diem<0||diem>10){
+                return 'Không hợp lệ'
+            }
+            else if(diem>=9){
+                return 'Xuất sắc'
+            }
+            else if(diem>=8){
+                return 'Giỏi'
+            }
+            else if(diem>=6.5){
+                return 'Khá'
+            }
+            else if(diem>=5){
+                return 'Trung bình'
+            }
+            else{
+                return 'Yếu'
+            }
+        }
+        document.write(xepLoai(diem) + '<br>')
+
+        //Bài 9 tính tổng chữ số
+        k = parseInt(prompt('Nhập số nguyên dương k:'));
+        function tongChuSo(k){
+            if(k<=0 || !Number.isInteger(k)){
+                return 'Nhập số nguyên dương'
+            }
+            let sum = 0;
+            let num = k;
+            while(num>0){
+                sum+=num%10;
+                num = Math.floor(num/10);
+            }
+            return sum;
+        }
+        document.write(tongChuSo(k))
+    </script>
+    
+</body>
+</html>
