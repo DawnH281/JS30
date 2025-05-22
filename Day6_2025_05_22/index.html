@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice - Magazine Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Top Header */
+        .top-header {
+            background-color: #e74c3c;
+            padding: 10px 0;
+        }
+
+        .top-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        /* Main Header */
+        .main-header {
+            background-color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo .v-letter {
+            color: #e74c3c;
+        }
+
+        .header-banner {
+            display: flex;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 5px;
+            gap: 20px;
+        }
+
+        .banner-text {
+            color: #666;
+        }
+
+        .banner-highlight {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .cta-button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background-color: white;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .main-nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .main-nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .main-nav-links a.active {
+            color: #e74c3c;
+        }
+
+        .main-nav-links a::after {
+            content: '▼';
+            font-size: 10px;
+            margin-left: 5px;
+            color: #999;
+        }
+
+        .search-icon {
+            font-size: 18px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+            height: 500px;
+        }
+
+        .hero-card {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            color: white;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
+            z-index: 1;
+        }
+
+        .hero-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card-1 {
+            background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop');
+        }
+
+        .hero-card-2 {
+            background-image: url('https://chaucaydanang.com/wp-content/uploads/2023/09/56.jpg');
+        }
+
+        .hero-card-3 {
+            background-image: url('https://images2.thanhnien.vn/528068263637045248/2023/5/22/goi-cuon-16847338256841687509788.jpeg');
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .tech-tag {
+            background-color: #3498db;
+        }
+
+        .env-tag {
+            background-color: #9b59b6;
+        }
+
+        .food-tag {
+            background-color: #27ae60;
+        }
+
+        .hero-title {
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .hero-date {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            
+            .hero-card {
+                height: 300px;
+            }
+            
+            .header-banner {
+                display: none;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <header class="top-header">
+        <nav class="top-nav">
+            <ul class="nav-links">
+                <li><a href="#">Layouts</a></li>
+                <li><a href="#">Typography</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Shop</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#">f</a>
+                <a href="#">t</a>
+                <a href="#">G+</a>
+                <a href="#">📷</a>
+                <a href="#">VK</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="v-letter">V</span>OICE
+            </div>
+            <div class="header-banner">
+                <div class="banner-text">
+                    <div class="banner-highlight">Voice is 30% faster!</div>
+                    <small>And more powerful with amazing new features</small>
+                </div>
+                <a href="#" class="cta-button">FIND OUT MORE</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="main-nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Layouts</a></li>
+                <li><a href="#">Posts</a></li>
+                <li><a href="#">Food</a></li>
+                <li><a href="#">Fashion</a></li>
+                <li><a href="#">Archives</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="search-icon">🔍</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <a href="#" class="hero-card hero-card-1">
+            <span class="category-tag tech-tag">Technology</span>
+            <h2 class="hero-title">The Features of the Best Ergonomic Keyboard</h2>
+            <p class="hero-date">3 days ago</p>
+        </a>
+        
+        <a href="#" class="hero-card hero-card-2">
+            <span class="category-tag env-tag">Environment</span>
+            <h2 class="hero-title">Making a Commitment to Environmental Sustainability</h2>
+            <p class="hero-date">3 days ago</p>
+        </a>
+        
+        <a href="#" class="hero-card hero-card-3">
+            <span class="category-tag food-tag">Food</span>
+            <h2 class="hero-title">Stunning Health Benefits Eating Chocolates</h2>
+            <p class="hero-date">3 days ago</p>
+        </a>
+    </section>
+</body>
+</html>
