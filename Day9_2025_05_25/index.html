@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thay đổi ảnh nền</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      width: 250px;
+      margin: 100px auto;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    select, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h3>Chọn ảnh nền trang:</h3>
+    <select id="backgroundSelect">
+      <option value="mountain">Núi non</option>
+      <option value="sea">Biển cả</option>
+      <option value="forest">Rừng cây</option>
+    </select>
+    <button onclick="changeBackground()">Đổi ảnh nền</button>
+  </div>
+
+  <script>
+    function changeBackground() {
+      const selection = document.getElementById("backgroundSelect").value;
+      let imageUrl = "";
+
+      switch (selection) {
+        case "mountain":
+          imageUrl = "https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/2090486035-1676518664908.jpg";
+          break;
+        case "sea":
+          imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRqopbUYBZwHD5pXXSOBV6Y_9AKTivT88mzA&s";
+          break;
+        case "forest":
+          imageUrl = "https://solenvn.com/wp-content/uploads/2023/10/dat-rung-dac-dung-la-gi_2202082641-1024x640.jpg";
+          break;
+      }
+
+      document.body.style.backgroundImage = `url('${imageUrl}')`;
+    }
+  </script>
+
+</body>
+</html>
