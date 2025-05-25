@@ -1,66 +1,66 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Thay đổi ảnh nền</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thay đổi hình nền</title>
   <style>
-    body {
+    body{
       margin: 0;
       padding: 0;
-      background-size: cover;
+      background-size: cover ;
       background-repeat: no-repeat;
       background-position: center;
-      font-family: Arial, sans-serif;
+      transition: background-image 0.5 ease;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    .container {
-      background-color: rgba(255, 255, 255, 0.8);
+    .container{
+      background-color: rgb(255, 255, 255);
       padding: 20px;
       width: 250px;
       margin: 100px auto;
-      border-radius: 10px;
+      border-radius:10px;
       text-align: center;
     }
 
-    select, button {
+    select, button{
       padding: 10px;
       margin-top: 10px;
       width: 100%;
+      font-size: 16px;
     }
   </style>
 </head>
-<body>
-
   <div class="container">
-    <h3>Chọn ảnh nền trang:</h3>
-    <select id="backgroundSelect">
+    <h3>Chọn ảnh nền trang</h3>
+    <select name="" id="backgroundSelect">
       <option value="mountain">Núi non</option>
       <option value="sea">Biển cả</option>
       <option value="forest">Rừng cây</option>
     </select>
     <button onclick="changeBackground()">Đổi ảnh nền</button>
   </div>
-
   <script>
-    function changeBackground() {
-      const selection = document.getElementById("backgroundSelect").value;
-      let imageUrl = "";
-
-      switch (selection) {
+    function changeBackground(){
+      const selection = document.getElementById('backgroundSelect').value;
+      let imageUrl='';
+      switch(selection){
         case "mountain":
-          imageUrl = "https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/2090486035-1676518664908.jpg";
+          imageUrl = "https://inanhlengo.com/wp-content/uploads/ODUD5I0-1-scaled.jpg";
           break;
         case "sea":
-          imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRqopbUYBZwHD5pXXSOBV6Y_9AKTivT88mzA&s";
+          imageUrl = "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/07/anh-bien-dep-1.jpg"
           break;
         case "forest":
-          imageUrl = "https://solenvn.com/wp-content/uploads/2023/10/dat-rung-dac-dung-la-gi_2202082641-1024x640.jpg";
+          imageUrl = "https://cdn3.ivivu.com/2017/03/nhung-khu-rung-xanh-muot-dep-tua-thien-duong-ivivu-10.jpg"
           break;
       }
-
-      document.body.style.backgroundImage = `url('${imageUrl}')`;
+      document.body.style.backgroundImage = `url('${imageUrl}')`
+    }
+    window.onload = () =>{
+      changeBackground();
     }
   </script>
-
 </body>
 </html>
