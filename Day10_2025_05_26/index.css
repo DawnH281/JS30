@@ -1,19 +1,35 @@
-.slideshow-container {
-  text-align: center;
-  margin-top: 30px;
+body{
+    background-image: url('https://kienthuchay.edu.vn/wp-content/uploads/2024/04/hinh-nen-may-tinh-logo-doi-tuyen-bong-da-arsenal_6630aab21e85d.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slideshow-container{
+    text-align: center;
+    margin-top: 30px;
+}
+
+h2{
+    color: whitesmoke;
 }
 
 img {
-  width: 640px;
-  height: 420px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 640px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0));
 }
 
-button {
-  margin: 20px 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+button{
+    margin: 20px 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#slide{
+    transition: opacity 0.5s;
+    opacity: 1;
 }
