@@ -7,111 +7,113 @@
 </head>
 <body>
     <script>
-        //Bài 1: Kiểm tra số chẵn/lẻ
-        n = parseInt(prompt('Nhập số nguyên n: '));
-        function kiemTraChanLe(n){
-            if(n%2==0){
-                return 'Số chẵn';
+        //Bài 1 Kiểm tra chẵn lẻ
+        a = parseInt(prompt('Nhập số nguyên a:'));
+        function chanLe(a){
+            if(a%2==0){
+                return "Số chẵn"
             }
             else{
-                return 'Số lẻ';
+                return 'Số lẻ'
             }
         }
-        document.write(kiemTraChanLe(n)+'<br>')
+        document.write(chanLe(a)+'<br>')
 
-        //Bài 2: Tính giai thừa
-        a = parseInt(prompt('Nhập số nguyên dương a:'))
-        function tinhGiaiThua(a){
-            if(a<0){
-                return 'Không tính được giai thừa của số âm';
+        //Bài 2 tính giai thừa
+        b = parseInt(prompt('Nhập số nguyên dương b:'));
+        function tinhGiaiThua(b){
+            if(b<0){
+                return 'Không tính được giai thừa số âm.'
             }
-            if(a==0 || a==1)
-                return 1;
+            if(b==0||b==1){
+                return 1
+            }
             else{
-                return a* tinhGiaiThua(a-1);
+                return b * tinhGiaiThua(b-1)
             }
         }
-        document.write(tinhGiaiThua(a) + '<br>')
+        document.write(tinhGiaiThua(b) + '<br>')
 
-        //Bài 3: Đếm số chia hết cho 3 và 5 trong khoảng 1-100
+
+        //Bài 3 Đếm số chia hết cho 3 và 5 trong khoảng 1-100
         function demSoChiaHet(){
             let count = 0;
-            for(let i = 1; i<=100; i++){
-                if(i%5==0 && i%3==0){
-                    count++;
+            for(let i=1; i<=100; i++){
+                if(i%5 == 0&& i%3 == 0){
+                    count++
                 }
             }
-            return count;
+            return count
         }
-        document.write(demSoChiaHet() + '<br>')
+        document.write(demSoChiaHet()+ '<br>')
 
-        //Bài 4: Tính tổng các số lẻ nhỏ hơn n
-        b = parseInt(prompt('Nhập số nguyên b: '))
-        function tongSoLe(b){
-            let tong = 0;
-            for(let i = 1; i<b; i+=2){
-                tong+=i;
+        //Bài 4 Tính tổng các số lẻ nhỏ hơn c
+        c =  parseInt(prompt('Nhập số nguyên c:'));
+        function tongSoLe(c){
+            let tong = 0 ;
+            for(let i = 1; i<c; i+=2){
+                tong+=i
             }
-            return tong;
+            return tong
         }
-        document.write(tongSoLe(b)+'<br>')
+        document.write(tongSoLe(c) + '<br>')
 
-        //Bài 5: Hiển thị bảng cửu chương
-        c=parseInt(prompt('Nhập vào một số từ 2-9 c: '))
-        function bangCuuChuong(c){
-            if(c<2 || c>9){
-                document.write('Nhập số từ 2-9');
-                return;
+        //Bài 5 Hiển thị bảng cửu chương 
+        d = parseInt(prompt('Nhập số nguyên d từ 2-9:'));
+        function bangCuuChuong(d){
+            if(d<2||d>9){
+                return 'Vui lòng nhập số từ 2-9.'
+            return;
             }
-            document.write('Bảng cửu chương của ${c}: ');
-            for (let f=1; f<=10; f++) {
-                document.write('${c} x ${f} = ${c*f}');
+            document.write(` Bảng cửu chương của ${d}: ` + '<br>')
+            for(let j = 1; j<=10; j++){
+                document.write(`${d} x ${j} = ${d*j}` + ' <br>')
             }
         }
-        document.write(bangCuuChuong(c) + '<br>')
+        bangCuuChuong(d)
 
-        //Bài 6: Kiểm tra số nguyên tố
-        d = parseInt(prompt('Nhập số nguyên d: '))
-        function laSoNguyenTo(d){
-            if(d<2){
+        //Bài 6 Kiểm tra số nguyên tố e
+        e = parseInt(prompt('Nhập số nguyên e:'));
+        function soNguyenTo(e){
+            if(e<2){
                 return false
             }
-            for(let z=2; z<=math.sqrt(d); z++){
-                if(n%i==0){
-                    return false;
+            for(let o=2; o<=Math.sqrt(e); o++){
+                if(e%o==0){
+                    return false
                 }
             }
-            return true
+            return  true
         }
-        document.write(laSoNguyenTo(d) + '<br>')
+        document.write(soNguyenTo(e) + '<br>')
 
-        //Bài 7: Vẽ tam giác sao
-        function veTamGiac(u) {
-            if (u < 1 || !Number.isInteger(u)) {
-                document.write("Vui lòng nhập một số nguyên dương.");
-                return;
+        //Bài 7 Vẽ tam giác sao
+        f = parseInt(prompt('Nhập số nguyên dương f:'));
+        function veTamGiac(f){
+            if(f<1 || !Number.isInteger(f)){
+                document.write('Nhập số nguyên dương');
+                return
             }
-
-            for (let h = 1; h <= u; h++) {
-                document.write("*".repeat(h));
+            for(let h = 1; h<=f; h++){
+                document.write('*'.repeat(h) + '<br>')
             }
         }
-        document.write(veTamGiac(u) + '<br>')
+        veTamGiac(f)
 
-        //Bài 8: Chuyển đổi điềm số
-        diem=parseFloat(prompt('Nhập vào điểm của học sinh: '))
+        //Bài 8 Chuyển đổi điểm
+        diem = parseFloat(prompt('Nhập điểm của học sinh: '));
         function xepLoai(diem){
-            if(diem<0 || diem>10){
-                return 'Không hợp lệ';
+            if(diem<0||diem>10){
+                return 'Không hợp lệ'
             }
             else if(diem>=9){
-                return 'Xuất sắc'
+                return 'Xuất săc'
             }
             else if(diem>=8){
-                return 'Giỏi'
+                return 'Xuất săc'
             }
             else if(diem>=6.5){
-                return 'Khá'
+                return 'Xuất săc'
             }
             else if(diem>=5){
                 return 'Trung bình'
@@ -120,25 +122,23 @@
                 return 'Yếu'
             }
         }
-        document.write(xepLoai(9)
-    )
+        document.writeln(xepLoai(diem) + '<br>')
 
-    //Bài 9: Tính tổng chữ số
-    function tongChuSo(k) {
-        if (k <= 0 || !Number.isInteger(k)) {
-            return "Nhập số nguyên dương.";
+        //Bài 9 Tính tổng chữ số
+        k = parseInt(prompt('Nhập số nguyên dương k'));
+        function tongChuSo(k){
+            if(k<=0 || !Number.isInteger(k)){
+                return 'Nhập số nguyên dương'
+            }
+            let sum = 0;
+            let num = k;
+            while(num>0){
+                sum+=num%10;
+                num=Math.floor(num/10);
+            }
+            return sum
         }
-        let sum = 0;
-        let num = k;
-        while (num > 0) {
-            sum += num % 10;
-            num = Math.floor(num / 10);
-        }
-        return sum;
-        }
-    document.write(tongChuSo(k));  
-
+        document.writeln(tongChuSo(k))
     </script>
-    
 </body>
 </html>
