@@ -114,3 +114,70 @@ td {
     text-decoration: none;
 }
 
+.nav-btn.left {
+  left: 20px;
+}
+
+.nav-btn.right {
+  right: 20px;
+}
+
+.nav-btn:hover {
+
+  color: black;
+}
+
+
+/* Thanh tìm kiếm */
+.search-bar {
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgb(202, 201, 201);
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 30px black;
+    border-radius: 90px;
+    padding: 10px 20px;
+    width: fit-content;
+    margin-top: 50px;
+}
+.option {
+    padding: 10px 20px;
+    border-right: 1px solid rgb(203, 198, 198);
+}
+.option:last-of-type {
+    border-right: none;
+}
+.option label {
+    display: block;
+    font-weight: bold;
+    font-size: 15px;
+}
+.option select {
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+    appearance: none;
+    border: none;
+}
+.search2 {
+    border-radius: 50%;
+    border: none;
+    background-color: #0065F8;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    transition: background-color 1s;
+}
+.search2:hover {
+    background-color: rgb(218, 203, 74);
+}
+.LuaChon:hover {
+    color: rgb(12, 96, 186)
+}
+.LuaChon {
+    cursor: pointer;
+}

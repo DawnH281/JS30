@@ -332,10 +332,7 @@ td {
     margin-left: 10%;
     flex-wrap: wrap;
 }
-.logo_end {
-    margin-right: 1px;
-    margin-left: 70px;
-}
+
 .logo_end img {
     height: 50px;
 }
