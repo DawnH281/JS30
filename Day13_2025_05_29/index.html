@@ -1,85 +1,82 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Quản lý Sinh viên - DOM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <style>
-    /* Thêm bảng */
-    body {
-      font-family: Arial;
+    body{
+      font-family: Arial, Helvetica, sans-serif;
       text-align: center;
       padding: 30px;
     }
 
-    .form-container {
+    .form-container{
       margin: auto;
       width: 400px;
       padding: 20px;
-      border: 1px solid #ddd;
+      border: 1px solid black;
       border-radius: 10px;
       background-color: #f9f9f9;
     }
 
-    label {
+    label{
       display: block;
       margin-top: 10px;
     }
 
-    input {
+    input{
       width: 100%;
       padding: 8px;
       margin-top: 5px;
     }
 
-    button {
+    button{
       margin-top: 15px;
       padding: 10px 20px;
       border: none;
-      border-radius: 5px;
       color: white;
+      border-radius: 5px;
       cursor: pointer;
     }
 
-    #submitBtn {
+    #submitBtn{
       background-color: #007bff;
     }
+   #submitBtn:hover{
+    background-color: #0056b3;
+   }
 
-    #submitBtn:hover {
-      background-color: #0056b3;
-    }
+   table{
+    margin: 30px auto;
+    border-collapse: collapse;
+    width: 90%;
+   }
 
-    table {
-      margin: 30px auto;
-      border-collapse: collapse;
-      width: 90%;
-    }
+   th, td{
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+   }
 
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
+   th{
+    background-color: #f2f2f2;
+   }
   </style>
 </head>
 <body>
-    <!-- Bảng -->
-  <h2>Quản lý Sinh viên - DOM</h2>
-
+  <h2>Quản lý sinh viên - DOM</h2>
   <div class="form-container">
     <label>Mã sinh viên:
       <input type="text" id="studentId">
     </label>
-    <label>Họ tên:
+    <label>Họ tên
       <input type="text" id="fullName">
     </label>
-    <label>Email:
+    <label>Email
       <input type="text" id="email">
     </label>
-    <label>Số điện thoại:
+    <label">Số điện thoại
       <input type="text" id="phone">
     </label>
     <button id="submitBtn" onclick="handleSubmit()">Thêm</button>
@@ -94,25 +91,25 @@
         <th>SDT</th>
       </tr>
     </thead>
+
     <tbody id="studentTableBody">
-        <!-- Thêm dữ liệu -->
+      <!-- Thêm dữ liệu -->
     </tbody>
   </table>
 
   <script>
-    function handleSubmit() {
+    function handleSubmit(){
       const id = document.getElementById("studentId").value.trim();
       const name = document.getElementById("fullName").value.trim();
       const email = document.getElementById("email").value.trim();
       const phone = document.getElementById("phone").value.trim();
 
-      if (!id || !name || !email || !phone) {
-        alert("Vui lòng nhập đầy đủ thông tin!");
+      if(!id || !name || !email || !phone){
+        alert('Vui lòng nhập đầy đủ thông tin!')
         return;
       }
 
-      const tableBody = document.getElementById("studentTableBody");
-
+      const tableBody = document.getElementById("studentTableBody")
       const row = tableBody.insertRow();
       row.insertCell(0).textContent = id;
       row.insertCell(1).textContent = name;
@@ -120,6 +117,5 @@
       row.insertCell(3).textContent = phone;
     }
   </script>
-
 </body>
 </html>
