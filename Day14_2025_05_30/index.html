@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý Sinh viên - DOM</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .form-container {
+      margin: auto;
+      width: 400px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+
+    #submitBtn {
+      background-color: #007bff;
+    }
+
+    #submitBtn:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      margin: 30px auto;
+      border-collapse: collapse;
+      width: 90%;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .edit-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .edit-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Quản lý Sinh viên - DOM</h2>
+
+  <div class="form-container">
+    <label>Mã sinh viên:
+      <input type="text" id="studentId">
+    </label>
+    <label>Họ tên:
+      <input type="text" id="fullName">
+    </label>
+    <label>Email:
+      <input type="text" id="email">
+    </label>
+    <label>Số điện thoại:
+      <input type="text" id="phone">
+    </label>
+    <button id="submitBtn" onclick="handleSubmit()">Thêm</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Mã SV</th>
+        <th>Họ tên</th>
+        <th>Email</th>
+        <th>SDT</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody id="studentTableBody">
+      <!-- dữ liệu ở đây -->
+    </tbody>
+  </table>
+
+  <script>
+    let editIndex = -1; // đánh dấu đang sửa dòng nào
+
+    function handleSubmit() {
+      const id = document.getElementById("studentId").value.trim();
+      const name = document.getElementById("fullName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!id || !name || !email || !phone) {
+        alert("Vui lòng nhập đầy đủ thông tin!");
+        return;
+      }
+
+      const tableBody = document.getElementById("studentTableBody");
+
+      if (editIndex === -1) {
+        // Thêm mới
+        const row = tableBody.insertRow();
+        row.insertCell(0).textContent = id;
+        row.insertCell(1).textContent = name;
+        row.insertCell(2).textContent = email;
+        row.insertCell(3).textContent = phone;
+
+        const actionCell = row.insertCell(4);
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "Sửa";
+        editBtn.className = "edit-btn";
+        editBtn.onclick = function () {
+          loadToForm(row.rowIndex - 1); // -1 vì header
+        };
+        actionCell.appendChild(editBtn);
+
+      } else {
+        // Lưu chỉnh sửa
+        const row = tableBody.rows[editIndex];
+        row.cells[0].textContent = id;
+        row.cells[1].textContent = name;
+        row.cells[2].textContent = email;
+        row.cells[3].textContent = phone;
+
+        editIndex = -1;
+        document.getElementById("submitBtn").textContent = "Thêm";
+      }
+
+      // Reset form
+      document.getElementById("studentId").value = "";
+      document.getElementById("fullName").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("phone").value = "";
+    }
+
+    function loadToForm(index) {
+      const row = document.getElementById("studentTableBody").rows[index];
+      document.getElementById("studentId").value = row.cells[0].textContent;
+      document.getElementById("fullName").value = row.cells[1].textContent;
+      document.getElementById("email").value = row.cells[2].textContent;
+      document.getElementById("phone").value = row.cells[3].textContent;
+
+      editIndex = index;
+      document.getElementById("submitBtn").textContent = "Lưu";
+    }
+  </script>
+
+</body>
+</html>
