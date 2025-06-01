@@ -1,114 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body><script>
-    // Bài tập 1: Tạo lớp Student và in thông tin sinh viên
-    class Student {
-  constructor(id, name, email, age) {
-    thisMSV = MSV;
-    this.name = name;
-    this.email = email;
-    this.age = age;
-  }
-
-  displayInfo() {
-    console.log(`MSV: ${this.MSV}`);
-    console.log(`Họ tên: ${this.name}`);
-    console.log(`Email: ${this.email}`);
-    console.log(`Tuổi: ${this.age}`);
-  }
-}
-
-const student1 = new Student(1, 'Tran Van Hoang', 'Hoangtv.ptit@gmail.com', 20);
-const student2 = new Student(2, 'Hoang Anh Tu', 'Tuha.ptit@gmail.com ', 21);
-
-student1.displayInfo();
-student2.displayInfo();
-
-// Bài tập 2: Tính lương nhân viên
-class Employee {
-  constructor(name, position, Salary, workingDays) {
-    this.name = name;
-    this.position = position;
-    this.Salary = Salary;
-    this.workingDays = workingDays;
-  }
-
-  calculateSalary() {
-    return this.Salary * this.workingDays;
-  }
-
-  show() {
-    console.log(`Tên nhân viên: ${this.name}`);
-    console.log(`Chức vụ: ${this.position}`);
-    console.log(`Lương : ${this.Salary}`);
-    console.log(`Số ngày làm việc: ${this.workingDays}`);
-    console.log(`Lương thực nhận: ${this.calculateSalary()}`);
-    console.log('--------------------------');
-  }
-}
-
-const emp1 = new Employee("Tran Van Hoang", "Nhân viên", 151500000, 22);
-const emp2 = new Employee("Hoang Anh Tu", "Bảo vệvệ", 200000, 20);
-
-emp1.show();
-emp2.show();
-
-// Bài tập 3: Quản lý danh sách sản phẩm
-class Product {
-  constructor(id, name, price, quantity) {
-    this.id = id;
-    this.name = name;
-    this.price = price;
-    this.quantity = quantity;
-  }
-}
-
-let productList = [];
-
-function addProduct(id, name, price, quantity) {
-  const newProduct = new Product(id, name, price, quantity);
-  productList.push(newProduct);
-}
-
-function calculateTotalInventoryValue() {
-  let total = 0;
-  for (let product of productList) {
-    total += product.price * product.quantity;
-  }
-  return total;
-}
-
-function findMostExpensiveProduct() {
-  if (productList.length === 0) return null;
-
-  let mostExpensive = productList[0];
-  for (let product of productList) {
-    if (product.price > mostExpensive.price) {
-      mostExpensive = product;
+  <meta charset="UTF-8">
+  <title>Quản lý sản phẩm</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px;
     }
-  }
-  return mostExpensive;
-}
+    button {
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
 
-addProduct(1, "Laptop", 20000000, 5);
-addProduct(2, "Điện thoại", 10000000, 10);
-addProduct(3, "Tai nghe", 2000000, 30);
+  <h1>Quản lý sản phẩm</h1>
 
-console.log("Tổng giá trị hàng tồn kho:", calculateTotalInventoryValue(), "VND");
+  <input type="text" id="id" placeholder="ID">
+  <input type="text" id="name" placeholder="Tên sản phẩm">
+  <input type="text" id="price" placeholder="Giá">
+  <input type="text" id="quantity" placeholder="Số lượng">
+  <button onclick="addProduct()">Thêm</button>
 
-const expensiveProduct = findMostExpensiveProduct();
-console.log("Sản phẩm có giá cao nhất:");
-console.log(`ID: ${expensiveProduct.id}`);
-console.log(`Tên: ${expensiveProduct.name}`);
-console.log(`Giá: ${expensiveProduct.price}`);
-console.log(`Số lượng: ${expensiveProduct.quantity}`);
+  <br><br>
 
-</script>
-    
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Giá</th>
+        <th>Số lượng</th>
+        <th>Tổng giá trị</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody id="productTable"></tbody>
+  </table>
+
+  <p><strong>Tổng giá trị tồn kho:</strong> <span id="totalValue">0 VNĐ</span></p>
+  <p><strong>Sản phẩm đắt nhất:</strong> <span id="mostExpensive">Chưa có</span></p>
+
+  <script>
+    class Product {
+      constructor(id, name, price, quantity) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+      }
+
+      getTotalValue() {
+        return this.price * this.quantity;
+      }
+    }
+
+    let products = [];
+
+    function formatCurrency(value) {
+      return value.toLocaleString('vi-VN') + ' VNĐ';
+    }
+
+    function renderTable() {
+      const table = document.getElementById("productTable");
+      table.innerHTML = "";
+      let total = 0;
+      let maxProduct = null;
+
+      products.forEach((product, index) => {
+        const row = document.createElement("tr");
+
+        const totalValue = product.getTotalValue();
+        total += totalValue;
+        if (!maxProduct || product.price > maxProduct.price) {
+          maxProduct = product;
+        }
+
+        row.innerHTML = `
+          <td>${product.id}</td>
+          <td>${product.name}</td>
+          <td>${formatCurrency(product.price)}</td>
+          <td>${product.quantity}</td>
+          <td>${formatCurrency(totalValue)}</td>
+          <td>
+            <button onclick="editProduct(${index})" style="background-color: gold;">Sửa</button>
+            <button onclick="deleteProduct(${index})" style="background-color: red; color: white;">Xóa</button>
+          </td>
+        `;
+        table.appendChild(row);
+      });
+
+      document.getElementById("totalValue").innerText = formatCurrency(total);
+      if (maxProduct) {
+        document.getElementById("mostExpensive").innerText = `${maxProduct.name} (${formatCurrency(maxProduct.price)})`;
+      } else {
+        document.getElementById("mostExpensive").innerText = "Chưa có";
+      }
+    }
+
+    function addProduct() {
+      const id = document.getElementById("id").value.trim();
+      const name = document.getElementById("name").value.trim();
+      const price = parseInt(document.getElementById("price").value);
+      const quantity = parseInt(document.getElementById("quantity").value);
+
+      if (products.some(p => p.id === id)) {
+        alert("ID đã tồn tại. Vui lòng chọn ID khác.");
+        return;
+      }
+
+      if (!id || !name || isNaN(price) || isNaN(quantity)) {
+        alert("Vui lòng nhập đầy đủ thông tin hợp lệ.");
+        return;
+      }
+
+      products.push(new Product(id, name, price, quantity));
+      renderTable();
+      clearInputs();
+    }
+
+    function deleteProduct(index) {
+      products.splice(index, 1);
+      renderTable();
+    }
+
+    function editProduct(index) {
+      const product = products[index];
+      document.getElementById("id").value = product.id;
+      document.getElementById("name").value = product.name;
+      document.getElementById("price").value = product.price;
+      document.getElementById("quantity").value = product.quantity;
+
+      deleteProduct(index);
+    }
+
+    function clearInputs() {
+      document.getElementById("id").value = '';
+      document.getElementById("name").value = '';
+      document.getElementById("price").value = '';
+      document.getElementById("quantity").value = '';
+    }
+
+  </script>
+
 </body>
 </html>
