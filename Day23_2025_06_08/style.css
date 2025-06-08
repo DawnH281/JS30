@@ -1,0 +1,345 @@
+/* Head và banner */
+body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+td {
+    padding: auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: white;
+    width: 100%;
+}
+
+.header-left {
+    display: flex;
+}
+
+.logo {
+    height: 50px;
+    margin-right: 40px ;
+    margin-left: 40px;
+}
+
+.header-link {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0px;
+    padding: 20px;
+}
+.header-link a {
+    text-decoration: none;
+    color: rgb(39, 38, 40);
+    font-size: 19px ;
+}
+
+.header-link a:hover{
+    color: #0065F8;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.search {
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #fff;
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  transition: border 0.3s;
+  margin-left: 140px;
+}
+
+.search:hover {
+  border-color: #0065F8;
+}
+
+.search input {
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 15px;
+  width: 200px;
+}
+
+.search button {
+  border: none;
+  background-color: #0065F8;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search button:hover {
+  background-color: #FFD586;
+}
+
+.language {
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+.lienHe, .dangNhap {
+    background-color: #0065F8;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    white-space: nowrap;
+    padding: 15px 25px;
+}
+.lienHe:hover, .dangNhap:hover {
+    background-color: rgb(218, 203, 74);
+    cursor: pointer;
+}
+
+.dangNhap a{
+    color: white;
+    text-decoration: none;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.nav-btn.left {
+  left: 20px;
+}
+
+.nav-btn.right {
+  right: 20px;
+}
+
+.nav-btn:hover {
+
+  color: black;
+}
+
+
+/* Thanh tìm kiếm */
+.search-bar {
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgb(202, 201, 201);
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 30px black;
+    border-radius: 90px;
+    padding: 10px 20px;
+    width: fit-content;
+    margin-top: 50px;
+}
+.option {
+    padding: 10px 20px;
+    border-right: 1px solid rgb(203, 198, 198);
+}
+.option:last-of-type {
+    border-right: none;
+}
+.option label {
+    display: block;
+    font-weight: bold;
+    font-size: 15px;
+}
+.option select {
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+    appearance: none;
+    border: none;
+}
+.search2 {
+    border-radius: 50%;
+    border: none;
+    background-color: #0065F8;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    transition: background-color 1s;
+}
+.search2:hover {
+    background-color: rgb(218, 203, 74);
+}
+.LuaChon:hover {
+    color: rgb(12, 96, 186)
+}
+.LuaChon {
+    cursor: pointer;
+}
+/* Danh sách phòng */
+.Phong {
+    overflow: hidden;
+    border-radius: 30px;
+}
+table {
+      margin-top: 50px;
+      width: 80%;
+      border-collapse: separate;
+      border-spacing: 20px;
+      display: flex;
+      margin-left: 10%;
+    }
+td {
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    vertical-align: top;
+    width: 20%;
+    padding: auto;
+}
+.img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.img:hover {
+    transform: scale(1.1);
+}
+.TinhTrang {
+    padding: 10px;
+}
+.title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.title:hover {
+    color: rgb(218, 203, 74);
+}
+.add {
+    margin-bottom: 3px;
+}
+.MaPhong {
+    margin-bottom: 3px;
+}
+.MaPhong:hover {
+    color: rgb(218, 203, 74);
+}
+.GiaTien {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+/* Xem thêm phòng */
+.XemThem {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.XemThem button {
+    border: none;
+    background-color:#0065F8;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    width: fit-content;
+    cursor: pointer;
+    height: 50px;
+    padding: 15px 25px;
+}
+.XemThem button:hover {
+    background-color: rgb(218, 203, 74);
+}
+
+/* Tin tức và sự kiện */
+.TinKien {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.FInfo {
+    color: blue;
+}
+.dongdau {
+    display: flex;
+}
+
+
+/* Phần cuối */
+.end {
+    display: flex;
+    color: black;
+    margin-left: 10%;
+    flex-wrap: wrap;
+}
+.logo_end {
+    margin-right: 1px;
+    margin-left: 70px;
+}
+.logo_end img {
+    height: 50px;
+}
+.logo_end p{
+    width: 40%;
+}
+
+.KhamPha {
+    display: block;
+    margin-right: 10%;
+    margin-left: -10%;
+}
+.KhamPha h3 {
+    margin-bottom: 5px;
+}
+.KhamPha a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.KhamPha ul {
+    list-style: none;
+    padding: 0;
+}
+.KhamPha li {
+    margin-bottom: 20px;
+}
+.CamHung {
+    display: block;
+    margin-right: 10%;
+}
+.CamHung h3 {
+    margin-bottom: 5px;
+}
+.CamHung ul {
+    list-style: none;
+    padding: 0;
+}
+.CamHung li {
+    margin-bottom: 20px;
+}
+.CamHung a {
+    color: black;
+    text-decoration: none;
+}
+
+.CamHung a:hover, .KhamPha a:hover{
+    color: #0065F8;
+}
+
